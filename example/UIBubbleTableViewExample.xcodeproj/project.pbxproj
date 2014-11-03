@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DE09F671A07BF34003282F2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DE09F661A07BF34003282F2 /* Default-568h@2x.png */; };
+		1DE09F691A07C36D003282F2 /* UIBubbleTableView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1DE09F681A07C36D003282F2 /* UIBubbleTableView.podspec */; };
 		76687AFD1622039C00707588 /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76687AFC1622039C00707588 /* UIBubbleTypingTableViewCell.m */; };
 		76687AFF162203AF00707588 /* halloween.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76687AFE162203AF00707588 /* halloween.jpg */; };
 		76D097CC1621F0E000C17816 /* UIBubbleHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D097CB1621F0E000C17816 /* UIBubbleHeaderTableViewCell.m */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		1DE09F661A07BF34003282F2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1DE09F681A07C36D003282F2 /* UIBubbleTableView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UIBubbleTableView.podspec; path = ../UIBubbleTableView.podspec; sourceTree = "<group>"; };
 		76687AFB1622039C00707588 /* UIBubbleTypingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleTypingTableViewCell.h; path = ../../src/UIBubbleTypingTableViewCell.h; sourceTree = "<group>"; };
 		76687AFC1622039C00707588 /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBubbleTypingTableViewCell.m; path = ../../src/UIBubbleTypingTableViewCell.m; sourceTree = "<group>"; };
 		76687AFE162203AF00707588 /* halloween.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = halloween.jpg; sourceTree = SOURCE_ROOT; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1DE09F661A07BF34003282F2 /* Default-568h@2x.png */,
+				1DE09F681A07C36D003282F2 /* UIBubbleTableView.podspec */,
 				76ED206815BF096C00E186D3 /* UIBubbleTableViewExample */,
 				76ED206115BF096C00E186D3 /* Frameworks */,
 				76ED205F15BF096C00E186D3 /* Products */,
@@ -241,6 +244,7 @@
 				76ED207915BF096C00E186D3 /* ViewController.xib in Resources */,
 				C86D4FFC15BFEBBF003F161E /* icon_57.png in Resources */,
 				C86D4FFE15BFEBC1003F161E /* icon_114.png in Resources */,
+				1DE09F691A07C36D003282F2 /* UIBubbleTableView.podspec in Resources */,
 				C83B107915DE43180067DADE /* bubbleMine.png in Resources */,
 				C83B107A15DE43180067DADE /* bubbleMine@2x.png in Resources */,
 				C83B107B15DE43180067DADE /* bubbleSomeone.png in Resources */,
