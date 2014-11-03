@@ -13,6 +13,9 @@
 
 @interface UIBubbleTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) UIImage *bubbleMineImage UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIImage *bubbleSomeoneImage UI_APPEARANCE_SELECTOR;
+
 @property (nonatomic, strong) NSBubbleData *data;
 @property (nonatomic) BOOL showAvatar;
 

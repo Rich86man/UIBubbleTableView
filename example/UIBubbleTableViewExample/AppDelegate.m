@@ -11,32 +11,20 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "UIBubbleTableViewCell.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
-
-#if !__has_feature(objc_arc)
-- (void)dealloc
-{
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
-#endif
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#if !__has_feature(objc_arc)
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-#else
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-#endif
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [[UIBubbleTableViewCell appearance] setBubbleMineImage:[[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14]];
+    [[UIBubbleTableViewCell appearance] setBubbleSomeoneImage:[[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14]];
+    
     return YES;
 }
 

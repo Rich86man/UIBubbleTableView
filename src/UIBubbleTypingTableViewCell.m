@@ -10,15 +10,11 @@
 
 @interface UIBubbleTypingTableViewCell ()
 
-@property (nonatomic, retain) UIImageView *typingImageView;
+@property (nonatomic, strong) UIImageView *typingImageView;
 
 @end
 
 @implementation UIBubbleTypingTableViewCell
-
-@synthesize type = _type;
-@synthesize typingImageView = _typingImageView;
-@synthesize showAvatar = _showAvatar;
 
 + (CGFloat)height
 {

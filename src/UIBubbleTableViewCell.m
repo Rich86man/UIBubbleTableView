@@ -14,9 +14,9 @@
 
 @interface UIBubbleTableViewCell ()
 
-@property (nonatomic, retain) UIView *customView;
-@property (nonatomic, retain) UIImageView *bubbleImage;
-@property (nonatomic, retain) UIImageView *avatarImage;
+@property (nonatomic, strong) UIView *customView;
+@property (nonatomic, strong) UIImageView *bubbleImage;
+@property (nonatomic, strong) UIImageView *avatarImage;
 
 - (void) setupInternalData;
 
@@ -24,28 +24,11 @@
 
 @implementation UIBubbleTableViewCell
 
-@synthesize data = _data;
-@synthesize customView = _customView;
-@synthesize bubbleImage = _bubbleImage;
-@synthesize showAvatar = _showAvatar;
-@synthesize avatarImage = _avatarImage;
-
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
 	[self setupInternalData];
 }
-
-#if !__has_feature(objc_arc)
-- (void) dealloc
-{
-    self.data = nil;
-    self.customView = nil;
-    self.bubbleImage = nil;
-    self.avatarImage = nil;
-    [super dealloc];
-}
-#endif
 
 - (void)setDataInternal:(NSBubbleData *)value
 {
@@ -59,11 +42,7 @@
     
     if (!self.bubbleImage)
     {
-#if !__has_feature(objc_arc)
-        self.bubbleImage = [[[UIImageView alloc] init] autorelease];
-#else
-        self.bubbleImage = [[UIImageView alloc] init];        
-#endif
+        self.bubbleImage = [[UIImageView alloc] init];
         [self addSubview:self.bubbleImage];
     }
     
@@ -79,11 +58,8 @@
     if (self.showAvatar)
     {
         [self.avatarImage removeFromSuperview];
-#if !__has_feature(objc_arc)
-        self.avatarImage = [[[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])] autorelease];
-#else
+        
         self.avatarImage = [[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])];
-#endif
         self.avatarImage.layer.cornerRadius = 9.0;
         self.avatarImage.layer.masksToBounds = YES;
         self.avatarImage.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:0.2].CGColor;
@@ -109,14 +85,24 @@
 
     if (type == BubbleTypeSomeoneElse)
     {
-        self.bubbleImage.image = [[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
+        self.bubbleImage.image = self.bubbleSomeoneImage;
 
     }
     else {
-        self.bubbleImage.image = [[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
+        self.bubbleImage.image = self.bubbleMineImage;
     }
 
     self.bubbleImage.frame = CGRectMake(x, y, width + self.data.insets.left + self.data.insets.right, height + self.data.insets.top + self.data.insets.bottom);
+}
+
+
+#pragma mark - Appearance
+- (UIImage *)bubbleMineImage {
+    return _bubbleMineImage ? _bubbleMineImage : [[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
+}
+
+- (UIImage *)bubbleSomeoneImage {
+    return _bubbleSomeoneImage ? _bubbleSomeoneImage : [[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
 }
 
 @end

@@ -10,14 +10,11 @@
 
 @interface UIBubbleHeaderTableViewCell ()
 
-@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, strong) UILabel *label;
 
 @end
 
 @implementation UIBubbleHeaderTableViewCell
-
-@synthesize label = _label;
-@synthesize date = _date;
 
 + (CGFloat)height
 {
@@ -30,9 +27,6 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     NSString *text = [dateFormatter stringFromDate:value];
-#if !__has_feature(objc_arc)
-    [dateFormatter release];
-#endif
     
     if (self.label)
     {

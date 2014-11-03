@@ -15,17 +15,11 @@
 
 @interface UIBubbleTableView ()
 
-@property (nonatomic, retain) NSMutableArray *bubbleSection;
+@property (nonatomic, strong) NSMutableArray *bubbleSection;
 
 @end
 
 @implementation UIBubbleTableView
-
-@synthesize bubbleDataSource = _bubbleDataSource;
-@synthesize snapInterval = _snapInterval;
-@synthesize bubbleSection = _bubbleSection;
-@synthesize typingBubble = _typingBubble;
-@synthesize showAvatars = _showAvatars;
 
 #pragma mark - Initializators
 
@@ -46,43 +40,33 @@
     self.typingBubble = NSBubbleTypingTypeNobody;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) [self initializator];
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) [self initializator];
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) [self initializator];
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:UITableViewStylePlain];
     if (self) [self initializator];
     return self;
 }
-
-#if !__has_feature(objc_arc)
-- (void)dealloc
-{
-    [_bubbleSection release];
-	_bubbleSection = nil;
-	_bubbleDataSource = nil;
-    [super dealloc];
-}
-#endif
 
 #pragma mark - Override
 
@@ -95,20 +79,13 @@
 	self.bubbleSection = nil;
     
     // Loading new data
-    int count = 0;
-#if !__has_feature(objc_arc)
-    self.bubbleSection = [[[NSMutableArray alloc] init] autorelease];
-#else
+    NSInteger count = 0;
+    
     self.bubbleSection = [[NSMutableArray alloc] init];
-#endif
     
     if (self.bubbleDataSource && (count = [self.bubbleDataSource rowsForBubbleTable:self]) > 0)
     {
-#if !__has_feature(objc_arc)
-        NSMutableArray *bubbleData = [[[NSMutableArray alloc] initWithCapacity:count] autorelease];
-#else
         NSMutableArray *bubbleData = [[NSMutableArray alloc] initWithCapacity:count];
-#endif
         
         for (int i = 0; i < count; i++)
         {
@@ -130,15 +107,11 @@
         
         for (int i = 0; i < count; i++)
         {
-            NSBubbleData *data = (NSBubbleData *)[bubbleData objectAtIndex:i];
+            NSBubbleData *data = (NSBubbleData *)bubbleData[i];
             
             if ([data.date timeIntervalSinceDate:last] > self.snapInterval)
             {
-#if !__has_feature(objc_arc)
-                currentSection = [[[NSMutableArray alloc] init] autorelease];
-#else
                 currentSection = [[NSMutableArray alloc] init];
-#endif
                 [self.bubbleSection addObject:currentSection];
             }
             
@@ -156,7 +129,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    int result = [self.bubbleSection count];
+    NSInteger result = [self.bubbleSection count];
     if (self.typingBubble != NSBubbleTypingTypeNobody) result++;
     return result;
 }
@@ -166,10 +139,10 @@
     // This is for now typing bubble
 	if (section >= [self.bubbleSection count]) return 1;
     
-    return [[self.bubbleSection objectAtIndex:section] count] + 1;
+    return [(self.bubbleSection)[section] count] + 1;
 }
 
-- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Now typing
 	if (indexPath.section >= [self.bubbleSection count])
@@ -183,7 +156,7 @@
         return [UIBubbleHeaderTableViewCell height];
     }
     
-    NSBubbleData *data = [[self.bubbleSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row - 1];
+    NSBubbleData *data = (self.bubbleSection)[indexPath.section][indexPath.row - 1];
     return MAX(data.insets.top + data.view.frame.size.height + data.insets.bottom, self.showAvatars ? 52 : 0);
 }
 
@@ -208,7 +181,7 @@
     {
         static NSString *cellId = @"tblBubbleHeaderCell";
         UIBubbleHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        NSBubbleData *data = [[self.bubbleSection objectAtIndex:indexPath.section] objectAtIndex:0];
+        NSBubbleData *data = (self.bubbleSection)[indexPath.section][0];
         
         if (cell == nil) cell = [[UIBubbleHeaderTableViewCell alloc] init];
 
@@ -220,7 +193,7 @@
     // Standard bubble    
     static NSString *cellId = @"tblBubbleCell";
     UIBubbleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    NSBubbleData *data = [[self.bubbleSection objectAtIndex:indexPath.section] objectAtIndex:indexPath.row - 1];
+    NSBubbleData *data = (self.bubbleSection)[indexPath.section][indexPath.row - 1];
     
     if (cell == nil) cell = [[UIBubbleTableViewCell alloc] init];
     

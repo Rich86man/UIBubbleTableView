@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CIDR_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/../images">
+      <sourceFolder url="file://$MODULE_DIR$/../images" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/NSBubbleData.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/NSBubbleData.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/NSBubbleData.m">
+      <sourceFolder url="file://$MODULE_DIR$/../src/NSBubbleData.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleHeaderTableViewCell.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleHeaderTableViewCell.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleHeaderTableViewCell.m">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleHeaderTableViewCell.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTableView.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTableView.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTableView.m">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTableView.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTableViewCell.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTableViewCell.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTableViewCell.m">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTableViewCell.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTableViewDataSource.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTableViewDataSource.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTypingTableViewCell.h">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTypingTableViewCell.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../src/UIBubbleTypingTableViewCell.m">
+      <sourceFolder url="file://$MODULE_DIR$/../src/UIBubbleTypingTableViewCell.m" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+

@@ -24,11 +24,11 @@ typedef enum _NSBubbleType
 @property (readonly, nonatomic) UIEdgeInsets insets;
 @property (nonatomic, strong) UIImage *avatar;
 
-- (id)initWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type;
-+ (id)dataWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type;
-- (id)initWithImage:(UIImage *)image date:(NSDate *)date type:(NSBubbleType)type;
-+ (id)dataWithImage:(UIImage *)image date:(NSDate *)date type:(NSBubbleType)type;
-- (id)initWithView:(UIView *)view date:(NSDate *)date type:(NSBubbleType)type insets:(UIEdgeInsets)insets;
-+ (id)dataWithView:(UIView *)view date:(NSDate *)date type:(NSBubbleType)type insets:(UIEdgeInsets)insets;
+- (instancetype)initWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type;
++ (instancetype)dataWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type;
+- (instancetype)initWithImage:(UIImage *)image date:(NSDate *)date type:(NSBubbleType)type;
++ (instancetype)dataWithImage:(UIImage *)image date:(NSDate *)date type:(NSBubbleType)type;
+- (instancetype)initWithView:(UIView *)view date:(NSDate *)date type:(NSBubbleType)type insets:(UIEdgeInsets)insets NS_DESIGNATED_INITIALIZER;
++ (instancetype)dataWithView:(UIView *)view date:(NSDate *)date type:(NSBubbleType)type insets:(UIEdgeInsets)insets;
 
 @end
