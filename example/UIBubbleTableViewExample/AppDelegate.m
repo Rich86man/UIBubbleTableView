@@ -12,6 +12,8 @@
 
 #import "ViewController.h"
 #import "UIBubbleTableViewCell.h"
+#import "UIBubbleTableView.h"
+#import "CustomBubbleTableViewCell.h"
 
 @implementation AppDelegate
 
@@ -21,10 +23,7 @@
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    
-    [[UIBubbleTableViewCell appearance] setBubbleMineImage:[[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14]];
-    [[UIBubbleTableViewCell appearance] setBubbleSomeoneImage:[[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14]];
-    
+
     return YES;
 }
 

@@ -195,7 +195,7 @@
     UIBubbleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     NSBubbleData *data = (self.bubbleSection)[indexPath.section][indexPath.row - 1];
     
-    if (cell == nil) cell = [[UIBubbleTableViewCell alloc] init];
+    if (cell == nil) cell = (UIBubbleTableViewCell *) [[[_bubbleCellClass class] alloc] init];
     
     cell.data = data;
     cell.showAvatar = self.showAvatars;
@@ -215,5 +215,11 @@
     }
 }
 
+
+#pragma mark - Appearance
+
+- (Class)bubbleCellClass {
+    return _bubbleCellClass ? _bubbleCellClass : [UIBubbleTableViewCell class];
+}
 
 @end

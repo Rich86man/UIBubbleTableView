@@ -95,14 +95,12 @@
     self.bubbleImage.frame = CGRectMake(x, y, width + self.data.insets.left + self.data.insets.right, height + self.data.insets.top + self.data.insets.bottom);
 }
 
-
-#pragma mark - Appearance
 - (UIImage *)bubbleMineImage {
-    return _bubbleMineImage ? _bubbleMineImage : [[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
+    return [[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
 }
 
 - (UIImage *)bubbleSomeoneImage {
-    return _bubbleSomeoneImage ? _bubbleSomeoneImage : [[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
+    return [[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
 }
 
 @end
