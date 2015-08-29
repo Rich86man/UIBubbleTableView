@@ -9,6 +9,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef enum _NSBubbleType
 {
@@ -16,7 +17,7 @@ typedef enum _NSBubbleType
     BubbleTypeSomeoneElse = 1
 } NSBubbleType;
 
-@interface NSBubbleData : NSObject
+@interface NSBubbleData : NSObject <NSCoding>
 
 @property (readonly, nonatomic, strong) NSDate *date;
 @property (readonly, nonatomic) NSBubbleType type;

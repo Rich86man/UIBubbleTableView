@@ -147,7 +147,7 @@
     // Now typing
 	if (indexPath.section >= [self.bubbleSection count])
     {
-        return MAX([UIBubbleTypingTableViewCell height], self.showAvatars ? 52 : 0);
+        return MAX([UIBubbleTypingTableViewCell height], self.showAvatars ? 52 : 20);
     }
     
     // Header
