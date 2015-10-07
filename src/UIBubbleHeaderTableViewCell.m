@@ -21,6 +21,12 @@
     return 28.0;
 }
 
+- (void)layoutSubviews
+{
+    self.label.frame = self.bounds;
+    [super layoutSubviews];
+}
+
 - (void)setDate:(NSDate *)value
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

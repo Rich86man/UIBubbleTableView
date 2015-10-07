@@ -15,8 +15,8 @@
 
 #pragma mark - Text bubble
 
-const UIEdgeInsets textInsetsMine = {15, 20, 21, 25};
-const UIEdgeInsets textInsetsSomeone = {15, 25, 21, 20};
+const UIEdgeInsets textInsetsMine = {10, 12, 15, 20};
+const UIEdgeInsets textInsetsSomeone = {10, 20, 15, 12};
 
 
 
@@ -52,7 +52,7 @@ const UIEdgeInsets textInsetsSomeone = {15, 25, 21, 20};
 
 - (instancetype)initWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type
 {
-    UIFont *font = [UIFont fontWithName:@"ProximaNova-light" size:17.0];
+    UIFont *font = [UIFont fontWithName:@"ProximaNova-Regular" size:16.0];
     CGSize size = [(text ? text : @"") boundingRectWithSize:CGSizeMake(220, 9999) 
                                                     options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:@{ NSFontAttributeName:font }
@@ -65,9 +65,9 @@ const UIEdgeInsets textInsetsSomeone = {15, 25, 21, 20};
     
     label.backgroundColor = [UIColor clearColor];
     
-    if(BubbleTypeSomeoneElse){
-    label.textColor = [UIColor colorWithRed:0.045 green:0.064 blue:0.063 alpha:1.000];
-    } if(BubbleTypeMine){
+    if(type == BubbleTypeSomeoneElse){
+        label.textColor = [UIColor colorWithRed:0.045 green:0.064 blue:0.063 alpha:1.000];
+    } else if(type == BubbleTypeMine){
         label.textColor = [UIColor colorWithRed:1.000 green:1.000 blue:0.960 alpha:1.000];
     }
     
