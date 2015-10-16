@@ -10,6 +10,7 @@
 
 #import "NSBubbleData.h"
 #import <QuartzCore/QuartzCore.h>
+#import <RKCategories/NSMutableAttributedString+Attributes.h>
 
 @implementation NSBubbleData
 
@@ -52,16 +53,17 @@ const UIEdgeInsets textInsetsSomeone = {10, 20, 15, 12};
 
 - (instancetype)initWithText:(NSString *)text date:(NSDate *)date type:(NSBubbleType)type
 {
-    UIFont *font = [UIFont fontWithName:@"ProximaNova-Regular" size:16.0];
-    CGSize size = [(text ? text : @"") boundingRectWithSize:CGSizeMake(220, 9999) 
-                                                    options:NSStringDrawingUsesLineFragmentOrigin
-                                                 attributes:@{ NSFontAttributeName:font }
-                                                    context:nil].size;
+    NSMutableAttributedString *attributedString = text.mutableAttributedString;
+    [attributedString addFontWithName:@"ProximaNova-Regular" size:16];
+    [attributedString addLineSpacing:1];
+    CGSize size = [(attributedString ? attributedString : @"".attributedString)
+                   boundingRectWithSize:CGSizeMake(220, 9999)
+                   options:NSStringDrawingUsesLineFragmentOrigin
+                   context:nil].size;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     label.numberOfLines = 0;
     label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.text = (text ? text : @"");
-    label.font = font;
+    label.attributedText = (attributedString ? attributedString : @"".attributedString);
     
     label.backgroundColor = [UIColor clearColor];
     
